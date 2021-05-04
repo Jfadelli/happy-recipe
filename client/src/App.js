@@ -1,25 +1,24 @@
 import React from 'react';
 import Home from './routes/Home'
-import RestaurantDetailPage from './routes/RestaurantDetailPage'
-import UpdatePage from './routes/UpdatePage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { RestaurantsContextProvider } from './context/restaurantsContext'
+import { RecipeContextProvider } from './context/appContext'
+import "./App.css"
 
 
 const App = () => {
   return (
-    <RestaurantsContextProvider>
-    <div className="container">
+    <RecipeContextProvider>
+    <div className="app">
       <Router>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/restaurants/:id/update' component={UpdatePage} />
-          <Route exact path='/restaurants/:id' component={RestaurantDetailPage} />
+          {/* <Route exact path='/recipes/:id/update' component={UpdatePage} />
+          <Route exact path='/recipes/:id' component={RestaurantDetailPage} /> */}
         </Switch>
       </Router>
 
     </div>
-    </RestaurantsContextProvider>
+    </RecipeContextProvider>
   );
 }
 

@@ -111,6 +111,54 @@ app.post('/api/v1/restaurants/:id/addReview', async (req, res) => {
 })
 
 
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- //
+
+//Get all recipes
+app.get("/api/v1/recipes/", async (req, res) => {
+    try {
+        const recipeData = await db.query('select * from  recipes')
+        res.status(200).json({
+            status: 'success',
+            results: recipeData.rows.length,
+            data: {
+                recipeData: recipeData.rows
+            }
+        })
+    }
+    catch (err) {
+        console.log(err)
+    }
+})
+
+app.post("/api/v1/recipes", async (req,res)=>{
+    try {
+        const results = await db.query("INSERT INTO recipes (name, rating, price) values ($1, $2, $3) returning *", [req.body.name, req.body.rating, req.body.price])
+        res.status(201).json({
+            status: 'success',
+            data: {
+                recipe: results.rows[0]
+            }
+        })
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+app.delete('/api/v1/recipes/:id', async (req, res) => {
+    try{
+        const results = await db.query("DELETE from recipes where id = $1", [req.params.id])
+        res.status(204).json({
+            status:'success',
+            data:{
+                recipe: results.rows[0]
+            }
+        })
+    } catch (err){
+        console.log(err)
+    }
+})
+
+
 const port = process.env.PORT || 4500;
 
 app.listen(port, () => {
