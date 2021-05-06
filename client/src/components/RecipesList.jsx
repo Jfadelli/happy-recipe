@@ -1,10 +1,12 @@
 import React, { useEffect, useContext } from 'react'
 import RecipeFinder from '../api/RecipeFinder'
-import { RecipeContext } from '../context/appContext'
+import { useHistory } from 'react-router-dom'
+import { RecipesContext } from '../context/appContext'
 
 
 const RecipesList = (props) => {
-    const { recipes, setRecipes } = useContext(RecipeContext)
+    let history = useHistory()
+    const { recipes, setRecipes } = useContext(RecipesContext)
     
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +21,11 @@ const RecipesList = (props) => {
 
     }, [setRecipes]);
 
+    const handleUpdate = async (e, id) => {
+        e.stopPropagation();
+        history.push(`/recipes/${id}/update`)
+    }
+
     const handleDelete = async (e, id) => {
         e.stopPropagation()
         try{
@@ -30,6 +37,10 @@ const RecipesList = (props) => {
         } catch (err) {
             console.log(err)
         }
+    }
+
+    const handleRecipeSelect = (id) => {
+        history.push(`/recipes/${id}/`)
     }
 
     return (
@@ -48,11 +59,11 @@ const RecipesList = (props) => {
                     {recipes && recipes.map((el) => {
                         return (
                             <>
-                                <tr onClick={() => {/* handleRecipeSelect(el.id)*/}} className='table-row' key={el.id}>
+                                <tr onClick={() => {handleRecipeSelect(el.id)}} className='table-row' key={el.id}>
                                     <td>{el.name}</td>
                                     <td>{el.rating}</td>
                                     <td>{`$ `+el.price}</td>
-                                    <td><button className='btn btn-warning'>Edit</button></td>
+                                    <td><button onClick={(e) => handleUpdate(e,el.id)} className='btn btn-warning'>Edit</button></td>
                                     <td><button onClick={(e) => handleDelete(e,el.id)} className='btn btn-danger'>Delete</button></td>
                                 </tr>
                             </>
