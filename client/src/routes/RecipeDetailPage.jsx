@@ -31,7 +31,7 @@ const RecipeDetailPage = () => {
         <div className="recipe-detail-wrapper">
             {selectedRecipe && (
                 <>
-                <h1>{selectedRecipe.recipe.name}</h1>
+                <h1 className='recipe-title'>{selectedRecipe.recipe.name}</h1>
                 <h1>Ingredients</h1>
             <Ingredients ingredients={selectedRecipe.ingredients} />
             <AddIngredients/>

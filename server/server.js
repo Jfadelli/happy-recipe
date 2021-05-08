@@ -11,6 +11,16 @@ app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json())
 
+// const { Client } = require('pg');
+
+// const db = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false
+//   }
+// });
+
+// db.connect();
 
 //Get all recipes
 app.get("/api/v1/recipes/", async (req, res) => {
@@ -25,6 +35,7 @@ app.get("/api/v1/recipes/", async (req, res) => {
         })
     }
     catch (err) { console.log(err) }
+    
 })
 
 // Get One Recipe
@@ -96,7 +107,7 @@ app.post('/api/v1/recipes/:id/addIngredients', async (req, res) => {
 
 app.delete('/api/v1/recipes/:id/ingredients', async (req, res) => {
     try {
-        console.log(req.body.id)
+
         const results = await db.query("DELETE from ingredients_list where id = $1", [req.body.id]);
         res.status(204).json({
             status:'success',

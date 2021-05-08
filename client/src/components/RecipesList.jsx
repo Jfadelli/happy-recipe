@@ -2,12 +2,13 @@ import React, { useEffect, useContext } from 'react'
 import RecipeFinder from '../api/RecipeFinder'
 import { useHistory } from 'react-router-dom'
 import { RecipesContext } from '../context/appContext'
+import StarRating from '../components/StarRating'
 
 
 const RecipesList = (props) => {
     let history = useHistory()
     const { recipes, setRecipes } = useContext(RecipesContext)
-    
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -19,6 +20,7 @@ const RecipesList = (props) => {
         }
         fetchData();
 
+
     }, [setRecipes]);
 
     const handleUpdate = async (e, id) => {
@@ -28,7 +30,7 @@ const RecipesList = (props) => {
 
     const handleDelete = async (e, id) => {
         e.stopPropagation()
-        try{
+        try {
             await RecipeFinder.delete(`/${id}`)
 
             setRecipes(recipes.filter(recipe => {
@@ -41,6 +43,26 @@ const RecipesList = (props) => {
 
     const handleRecipeSelect = (id) => {
         history.push(`/recipes/${id}/`)
+    }
+
+    const renderRating = (rating) => {
+        if (rating <= 0) {
+            return <span className="text-warning">Not Yet Rated</span>
+        }
+        return (<>
+            <StarRating rating={rating} />
+        </>)
+    }
+
+    const priceStyle = (price) => {
+        if (price <= 2) {
+            return ('green'
+            )
+        } else if(price >2 && price <= 4){
+            return ('yellow')
+        } else {
+            return ('red')
+        }
     }
 
     return (
@@ -58,15 +80,15 @@ const RecipesList = (props) => {
                 <tbody>
                     {recipes && recipes.map((el) => {
                         return (
-                            <>
-                                <tr onClick={() => {handleRecipeSelect(el.id)}} className='table-row' key={el.id}>
-                                    <td>{el.name}</td>
-                                    <td>{el.rating}</td>
-                                    <td>{`$ `+el.price}</td>
-                                    <td><button onClick={(e) => handleUpdate(e,el.id)} className='btn btn-warning'>Edit</button></td>
-                                    <td><button onClick={(e) => handleDelete(e,el.id)} className='btn btn-danger'>Delete</button></td>
-                                </tr>
-                            </>
+                            <tr key={el.id} onClick={() => { handleRecipeSelect(el.id) }} className='table-row' >
+                                <td >{el.name}</td>
+                                <td>{renderRating(el.rating)}</td>
+                                <td style={{color: priceStyle(el.price)}}>{`$`.repeat(el.price)}</td>
+                                <td><button onClick={(e) => handleUpdate(e, el.id)} className='btn btn-warning'>Edit</button></td>
+                                <td><button onClick={(e) => handleDelete(e, el.id)} className='btn btn-danger'>Delete</button></td>
+                            </tr>
+
+
                         )
                     })}
                 </tbody>

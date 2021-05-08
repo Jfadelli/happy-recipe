@@ -1,5 +1,7 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL:"http://localhost:4000/api/v1/recipes"
+    baseURL:"http://192.168.143.22:52/api/v1/recipes" // LAN
+    // baseURL:"http://72.197.66.232:52/api/v1/recipes" // WAN
+    // baseURL:"http://localhost:52/api/v1/recipes" // LOCAL
 })

@@ -58,6 +58,15 @@ CREATE TABLE instructions_list(
 
 INSERT INTO recipes (name, rating, price) values ('Spaghetti', 4, 10);
 
-INSERT INTO ingredients_list (recipe_id, ingredients) values (1, '1. Spaghetti Noodles n 2. Pasta Sauce n 3. Parmesan Cheese');
+INSERT INTO ingredients_list (recipe_id, ingredients) values (1, '1. Spaghetti Noodles');
 
-INSERT INTO instructions_list (recipe_id, instructions) values (1, '1. Boil water n2. Cook Pasta n3.Heat sauce');
+INSERT INTO instructions_list (recipe_id, instructions) values (1, '1. Boil water');
+
+
+LOCAL ENV INFO
+PORT = 4000
+PGUSER=postgres
+PGHOST=localhost
+PGPASSWORD=Xirdneh13!!
+PGDATABASE=recipe
+PGPORT=5432

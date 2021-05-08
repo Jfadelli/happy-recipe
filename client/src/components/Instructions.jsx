@@ -21,8 +21,8 @@ const Instructions = ({ instructions }) => {
                     < div key={el.id}>
 
                         <div className="card-header d-flex justify-content-between">
-                            <span>{el.instructions}</span>
-                            <span><button onClick={(e) => handleDelete(e, el.id)} className='btn btn-danger' >Delete</button></span>
+                            <span style={{width: '80%'}}>{el.instructions}</span>
+                            <span style={{alignSelf:'center'}} ><button  onClick={(e) => handleDelete(e, el.id)} className='btn btn-danger' >Delete</button></span>
 
                         </div>
                     </div>

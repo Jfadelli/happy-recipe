@@ -33,8 +33,8 @@ const UpdateRecipe = () => {
         history.push('/')
     }
     return (
-        <div>
-            <form>
+        <div className='recipe-detail-wrapper' >
+            <form className='ingredients-col'>
                 <div className='form-group'>
                     <label htmlFor="name">Name</label>
                     <input
@@ -47,7 +47,9 @@ const UpdateRecipe = () => {
                 </div>
 
                 <div className='form-group'>
+                <br />
                     <label htmlFor="rating">Rating</label>
+                    <br />
                     <input
                         value={rating}
                         onChange={e => setRating(e.target.value)}
@@ -58,6 +60,7 @@ const UpdateRecipe = () => {
                 </div>
 
                 <div className='form-group'>
+                <br />
                     <label htmlFor="price">Price</label>
                     <select
                         value={price}
