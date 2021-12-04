@@ -30,19 +30,16 @@
 }
 .add-recipe-form{
     display: flex;
-    justify-content: center;
-    width:100%;
-}
-.add-recipe-form-row{
-    display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width:100%;
 }
 
 .add-recipe-col{
     display:flex;
-    max-width: 200px;
+    width: 200px;
+    margin: 10px 0px;
 }
 
 .recipe-detail-wrapper{

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect } from 'react'
+import React, {useState, useContext, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import RecipeFinder from '../api/RecipeFinder'
 
@@ -14,6 +14,15 @@ import AddInstructions from '../components/AddInstructions'
 const RecipeDetailPage = () => {
     const {id} = useParams();
     const { selectedRecipe, setSelectedRecipe} = useContext(RecipesContext)
+
+    const [edit, setEdit] = useState(false)
+    const handleEdit = () => {
+        if (edit === false) {
+            setEdit(true)
+        } else {
+            setEdit(false)
+        }
+    }
 
     useEffect(() => {
         const fetchData = async () =>{
@@ -37,6 +46,7 @@ const RecipeDetailPage = () => {
             <AddIngredients/>
             <hr></hr>
             <h1>Instructions</h1>
+            
             <Instructions instructions={selectedRecipe.instructions}/>
             <AddInstructions />
                 </>
