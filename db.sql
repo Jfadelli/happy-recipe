@@ -62,11 +62,3 @@ INSERT INTO ingredients_list (recipe_id, ingredients) values (1, '1. Spaghetti N
 
 INSERT INTO instructions_list (recipe_id, instructions) values (1, '1. Boil water');
 
-
-LOCAL ENV INFO
-PORT = 4000
-PGUSER=postgres
-PGHOST=localhost
-PGPASSWORD=Xirdneh13!!
-PGDATABASE=recipe
-PGPORT=5432

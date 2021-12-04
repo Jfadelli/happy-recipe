@@ -5,7 +5,10 @@ import { RecipesContext } from '../context/appContext'
 import StarRating from '../components/StarRating'
 
 
+
+
 const RecipesList = (props) => {
+
     let history = useHistory()
     const { recipes, setRecipes } = useContext(RecipesContext)
 
@@ -74,7 +77,7 @@ const RecipesList = (props) => {
                         <th scope='col'>Rating</th>
                         <th scope='col'>Price</th>
                         <th scope='col'>Edit</th>
-                        <th scope='col'>Delete</th>
+                        {/* <th scope='col'>Delete</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -85,7 +88,7 @@ const RecipesList = (props) => {
                                 <td>{renderRating(el.rating)}</td>
                                 <td style={{color: priceStyle(el.price)}}>{`$`.repeat(el.price)}</td>
                                 <td><button onClick={(e) => handleUpdate(e, el.id)} className='btn btn-warning'>Edit</button></td>
-                                <td><button onClick={(e) => handleDelete(e, el.id)} className='btn btn-danger'>Delete</button></td>
+                                {/* <td><button onClick={(e) => handleDelete(e, el.id)} className='btn btn-danger'>Delete</button></td> */}
                             </tr>
 
 
