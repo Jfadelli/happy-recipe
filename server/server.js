@@ -21,8 +21,6 @@ app.use(express.json())
 // });
 
 // db.connect();
-
-//Get all recipes
 app.get("/api/v1/recipes/", async (req, res) => {
     try {
         const recipeData = await db.query('select * from  recipes')
@@ -33,9 +31,7 @@ app.get("/api/v1/recipes/", async (req, res) => {
                 recipeData: recipeData.rows
             }
         })
-    }
-    catch (err) { console.log(err) }
-    
+    } catch (err) { console.log(err) } 
 })
 
 // Get One Recipe
