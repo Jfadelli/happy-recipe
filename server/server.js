@@ -11,17 +11,6 @@ app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json())
 
-// const { Client } = require('pg');
-
-// const db = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// });
-
-// db.connect();
-
 //Get all recipes
 app.get("/api/v1/recipes/", async (req, res) => {
     try {
