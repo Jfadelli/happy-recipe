@@ -31,18 +31,18 @@ const RecipesList = (props) => {
         history.push(`/recipes/${id}/update`)
     }
 
-    const handleDelete = async (e, id) => {
-        e.stopPropagation()
-        try {
-            await RecipeFinder.delete(`/${id}`)
+    // const handleDelete = async (e, id) => {
+    //     e.stopPropagation()
+    //     try {
+    //         await RecipeFinder.delete(`/${id}`)
 
-            setRecipes(recipes.filter(recipe => {
-                return recipe.id !== id
-            }))
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    //         setRecipes(recipes.filter(recipe => {
+    //             return recipe.id !== id
+    //         }))
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
     const handleRecipeSelect = (id) => {
         history.push(`/recipes/${id}/`)
