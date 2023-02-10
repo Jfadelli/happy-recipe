@@ -1,3 +1,10 @@
+# Works In Progress
+* Add user login, and dynamic home screen content based on account
+
+# Jobs done
+   * Update postgres server to have accountID and passwords
+   * Added SSH to server and can access from windows with cmd -> `ssh jason@myipaddress`
+
 # Postgres Server Controls
 Access server from terminal
 
