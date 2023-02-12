@@ -1,9 +1,21 @@
-# Postgres Server Controls
-Access server from terminal
+# Works In Progress
+* Add user login, and dynamic home screen content based on account
+  * Created sample login bar above <Navbar> in App.js. [react login tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
 
+
+# Jobs done
+   * Update postgres server to have accountID and passwords
+   * Added SSH to server and can access from windows with cmd -> `ssh jason@myipaddress`
+
+# Postgres Server Controls
 ```
+# Access server from terminal
 sudo -u postgres psql
+
+# Restart postgres
+sudo systemctl restart postgresql
 ```
+
 
 # Nginx default config
 ```
@@ -39,6 +51,7 @@ must use `sudo systemctl restart nginx` after any changes
 * [og guide for hosting PERN application on Ubuntu 20.04](https://github.com/Sanjeev-Thiyagarajan/PERN-STACK-DEPLOYMENT)
 * [postgres configuration basics](https://stackoverflow.com/questions/22080307/access-postgresql-server-from-lan)
 * [postgres control basics](https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm)
+* [react login tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
   
 
 # Log
