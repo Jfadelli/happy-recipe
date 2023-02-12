@@ -7,6 +7,7 @@ import "./App.css"
 import RecipeDetailPage from './routes/RecipeDetailPage';
 import NavBar from './components/NavBar'
 import AddRecipes from './components/AddRecipes'
+import Login from './components/Login'
 
 
 
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <RecipesContextProvider>
     <div className="app">
+      <Login />
       <NavBar />
       <Router>
         <Switch>
