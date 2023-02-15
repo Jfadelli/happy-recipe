@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Home from './routes/Home'
 import UpdatePage from './routes/UpdatePage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -10,8 +10,11 @@ import AddRecipes from './components/AddRecipes'
 import Login from './components/Login'
 
 
-
 const App = () => {
+  const [token, setToken] = useState('t');
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
   return (
     <RecipesContextProvider>
     <div className="app">

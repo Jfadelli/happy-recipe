@@ -52,6 +52,7 @@ must use `sudo systemctl restart nginx` after any changes
 * [postgres configuration basics](https://stackoverflow.com/questions/22080307/access-postgresql-server-from-lan)
 * [postgres control basics](https://www.tutorialspoint.com/postgresql/postgresql_select_database.htm)
 * [react login tutorial](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
+* [PERN - yelp](https://www.youtube.com/watch?v=J01rYl9T3BU)
   
 
 # Log

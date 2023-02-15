@@ -11,10 +11,12 @@ app.use(morgan('dev'))
 app.use(cors())
 app.use(express.json())
 
+
 //Get all recipes
 app.get("/api/v1/recipes/", async (req, res) => {
     try {
         const recipeData = await db.query('select * from  recipes')
+        
         res.status(200).json({
             status: 'success',
             results: recipeData.rows.length,
@@ -128,7 +130,7 @@ app.delete('/api/v1/recipes/:id/instructions', async (req, res) => {
     } catch (err) { console.log(err) }
 })
 
-// app.login('http://192.168.0.37:3001/api/v1/recipes')
+// app.login('/api/v1/recipes')
 
 
 const port = process.env.PORT || 4500;
